@@ -11,7 +11,6 @@
 		837FE90F281C3ED500027F1E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 837FE90E281C3ED500027F1E /* AppDelegate.swift */; };
 		837FE911281C3ED500027F1E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 837FE910281C3ED500027F1E /* SceneDelegate.swift */; };
 		837FE913281C3ED500027F1E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 837FE912281C3ED500027F1E /* ViewController.swift */; };
-		837FE916281C3ED500027F1E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 837FE914281C3ED500027F1E /* Main.storyboard */; };
 		837FE919281C3ED500027F1E /* UnsplashPhotoCollection.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 837FE917281C3ED500027F1E /* UnsplashPhotoCollection.xcdatamodeld */; };
 		837FE91B281C3ED600027F1E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 837FE91A281C3ED600027F1E /* Assets.xcassets */; };
 		837FE91E281C3ED600027F1E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 837FE91C281C3ED600027F1E /* LaunchScreen.storyboard */; };
@@ -24,7 +23,6 @@
 		837FE90E281C3ED500027F1E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		837FE910281C3ED500027F1E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		837FE912281C3ED500027F1E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		837FE915281C3ED500027F1E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		837FE918281C3ED500027F1E /* UnsplashPhotoCollection.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = UnsplashPhotoCollection.xcdatamodel; sourceTree = "<group>"; };
 		837FE91A281C3ED600027F1E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		837FE91D281C3ED600027F1E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -76,7 +74,6 @@
 				837FE90E281C3ED500027F1E /* AppDelegate.swift */,
 				837FE910281C3ED500027F1E /* SceneDelegate.swift */,
 				837FE912281C3ED500027F1E /* ViewController.swift */,
-				837FE914281C3ED500027F1E /* Main.storyboard */,
 				837FE91A281C3ED600027F1E /* Assets.xcassets */,
 				837FE91C281C3ED600027F1E /* LaunchScreen.storyboard */,
 				837FE91F281C3ED600027F1E /* Info.plist */,
@@ -91,7 +88,6 @@
 				0E929411725376B42E6B377C /* Pods-UnsplashPhotoCollection.debug.xcconfig */,
 				4399B2E8E1EAEB66FD5A5C15 /* Pods-UnsplashPhotoCollection.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -157,7 +153,6 @@
 			files = (
 				837FE91E281C3ED600027F1E /* LaunchScreen.storyboard in Resources */,
 				837FE91B281C3ED600027F1E /* Assets.xcassets in Resources */,
-				837FE916281C3ED500027F1E /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -220,14 +215,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		837FE914281C3ED500027F1E /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				837FE915281C3ED500027F1E /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		837FE91C281C3ED600027F1E /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -368,7 +355,6 @@
 				INFOPLIST_FILE = UnsplashPhotoCollection/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -397,7 +383,6 @@
 				INFOPLIST_FILE = UnsplashPhotoCollection/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
