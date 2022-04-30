@@ -10,10 +10,17 @@
 		77DD228DE09A08130FABBC6E /* Pods_UnsplashPhotoCollection.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8E63D989D4C1FBDB2E6E6721 /* Pods_UnsplashPhotoCollection.framework */; };
 		837FE90F281C3ED500027F1E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 837FE90E281C3ED500027F1E /* AppDelegate.swift */; };
 		837FE911281C3ED500027F1E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 837FE910281C3ED500027F1E /* SceneDelegate.swift */; };
-		837FE913281C3ED500027F1E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 837FE912281C3ED500027F1E /* ViewController.swift */; };
+		837FE913281C3ED500027F1E /* PhotosCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 837FE912281C3ED500027F1E /* PhotosCollectionViewController.swift */; };
 		837FE919281C3ED500027F1E /* UnsplashPhotoCollection.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 837FE917281C3ED500027F1E /* UnsplashPhotoCollection.xcdatamodeld */; };
 		837FE91B281C3ED600027F1E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 837FE91A281C3ED600027F1E /* Assets.xcassets */; };
 		837FE91E281C3ED600027F1E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 837FE91C281C3ED600027F1E /* LaunchScreen.storyboard */; };
+		837FE929281C4A4200027F1E /* PhotosCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 837FE928281C4A4200027F1E /* PhotosCollectionView.swift */; };
+		837FE92D281CA26000027F1E /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 837FE92C281CA26000027F1E /* UIViewExtension.swift */; };
+		837FE92F281CA2BA00027F1E /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 837FE92E281CA2BA00027F1E /* TabBarController.swift */; };
+		837FE931281CA32300027F1E /* PreferedPhotosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 837FE930281CA32300027F1E /* PreferedPhotosViewController.swift */; };
+		837FE933281CA3D900027F1E /* PreferedPhotoTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 837FE932281CA3D900027F1E /* PreferedPhotoTableView.swift */; };
+		837FE935281CA4E400027F1E /* PreferedTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 837FE934281CA4E400027F1E /* PreferedTableViewCell.swift */; };
+		837FE938281CA54A00027F1E /* PhotosCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 837FE937281CA54A00027F1E /* PhotosCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,11 +29,18 @@
 		837FE90B281C3ED500027F1E /* UnsplashPhotoCollection.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UnsplashPhotoCollection.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		837FE90E281C3ED500027F1E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		837FE910281C3ED500027F1E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		837FE912281C3ED500027F1E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		837FE912281C3ED500027F1E /* PhotosCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosCollectionViewController.swift; sourceTree = "<group>"; };
 		837FE918281C3ED500027F1E /* UnsplashPhotoCollection.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = UnsplashPhotoCollection.xcdatamodel; sourceTree = "<group>"; };
 		837FE91A281C3ED600027F1E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		837FE91D281C3ED600027F1E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		837FE91F281C3ED600027F1E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		837FE928281C4A4200027F1E /* PhotosCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosCollectionView.swift; sourceTree = "<group>"; };
+		837FE92C281CA26000027F1E /* UIViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
+		837FE92E281CA2BA00027F1E /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
+		837FE930281CA32300027F1E /* PreferedPhotosViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferedPhotosViewController.swift; sourceTree = "<group>"; };
+		837FE932281CA3D900027F1E /* PreferedPhotoTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferedPhotoTableView.swift; sourceTree = "<group>"; };
+		837FE934281CA4E400027F1E /* PreferedTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferedTableViewCell.swift; sourceTree = "<group>"; };
+		837FE937281CA54A00027F1E /* PhotosCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosCollectionViewCell.swift; sourceTree = "<group>"; };
 		8E63D989D4C1FBDB2E6E6721 /* Pods_UnsplashPhotoCollection.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UnsplashPhotoCollection.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -71,15 +85,62 @@
 		837FE90D281C3ED500027F1E /* UnsplashPhotoCollection */ = {
 			isa = PBXGroup;
 			children = (
+				837FE927281C443C00027F1E /* Models */,
+				837FE926281C443400027F1E /* Views */,
+				837FE925281C442900027F1E /* Controllers */,
 				837FE90E281C3ED500027F1E /* AppDelegate.swift */,
 				837FE910281C3ED500027F1E /* SceneDelegate.swift */,
-				837FE912281C3ED500027F1E /* ViewController.swift */,
 				837FE91A281C3ED600027F1E /* Assets.xcassets */,
 				837FE91C281C3ED600027F1E /* LaunchScreen.storyboard */,
 				837FE91F281C3ED600027F1E /* Info.plist */,
 				837FE917281C3ED500027F1E /* UnsplashPhotoCollection.xcdatamodeld */,
 			);
 			path = UnsplashPhotoCollection;
+			sourceTree = "<group>";
+		};
+		837FE925281C442900027F1E /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				837FE92E281CA2BA00027F1E /* TabBarController.swift */,
+				837FE912281C3ED500027F1E /* PhotosCollectionViewController.swift */,
+				837FE930281CA32300027F1E /* PreferedPhotosViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		837FE926281C443400027F1E /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				837FE936281CA53300027F1E /* Cells */,
+				837FE928281C4A4200027F1E /* PhotosCollectionView.swift */,
+				837FE932281CA3D900027F1E /* PreferedPhotoTableView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		837FE927281C443C00027F1E /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				837FE92A281CA24200027F1E /* Extensions */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		837FE92A281CA24200027F1E /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				837FE92C281CA26000027F1E /* UIViewExtension.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		837FE936281CA53300027F1E /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				837FE934281CA4E400027F1E /* PreferedTableViewCell.swift */,
+				837FE937281CA54A00027F1E /* PhotosCollectionViewCell.swift */,
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 		F26E1907B9FCD333CD758708 /* Pods */ = {
@@ -205,9 +266,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				837FE92D281CA26000027F1E /* UIViewExtension.swift in Sources */,
 				837FE919281C3ED500027F1E /* UnsplashPhotoCollection.xcdatamodeld in Sources */,
-				837FE913281C3ED500027F1E /* ViewController.swift in Sources */,
+				837FE935281CA4E400027F1E /* PreferedTableViewCell.swift in Sources */,
+				837FE913281C3ED500027F1E /* PhotosCollectionViewController.swift in Sources */,
+				837FE933281CA3D900027F1E /* PreferedPhotoTableView.swift in Sources */,
+				837FE938281CA54A00027F1E /* PhotosCollectionViewCell.swift in Sources */,
+				837FE929281C4A4200027F1E /* PhotosCollectionView.swift in Sources */,
+				837FE92F281CA2BA00027F1E /* TabBarController.swift in Sources */,
 				837FE90F281C3ED500027F1E /* AppDelegate.swift in Sources */,
+				837FE931281CA32300027F1E /* PreferedPhotosViewController.swift in Sources */,
 				837FE911281C3ED500027F1E /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -357,6 +425,7 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -364,9 +433,10 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = A3.UnsplashPhotoCollection;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -385,6 +455,7 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -394,7 +465,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
