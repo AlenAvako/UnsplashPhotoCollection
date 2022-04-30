@@ -1,5 +1,5 @@
 //
-//  PreferedPhotosViewController.swift
+//  FavoritesTableViewController.swift
 //  UnsplashPhotoCollection
 //
 //  Created by Ален Авако on 30.04.2022.
@@ -7,9 +7,9 @@
 
 import UIKit
 
-class PreferedPhotosViewController: UIViewController {
+class FavoritesTableViewController: UIViewController {
     
-    let tableView = PreferedPhotoTableView()
+    let tableView = FavoritesTableView()
     
     override func loadView() {
         super.loadView()

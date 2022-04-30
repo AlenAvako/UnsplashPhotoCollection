@@ -18,10 +18,18 @@ public extension UIView {
         translatesAutoresizingMaskIntoConstraints = false
     }
     
-    func roundCornersWithRadius(_ radius: CGFloat, top: Bool? = true, bottom: Bool? = true) {
+    func roundCornersWithRadius(_ radius: CGFloat, top: Bool? = true, bottom: Bool? = true, shadowLayer: Bool = true) {
         var maskedCorners = CACornerMask()
         
         clipsToBounds = true
+        
+        if shadowLayer {
+            layer.masksToBounds = false
+            layer.shadowOpacity = 0.5
+            layer.shadowColor = UIColor.black.cgColor
+            layer.shadowRadius = 3
+            layer.shadowOffset = CGSize(width: 3, height: 3)
+        }
         
         switch (top, bottom) {
         case (true, false):

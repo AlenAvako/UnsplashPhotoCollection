@@ -15,6 +15,8 @@ final class PhotosCollectionView: UICollectionView {
         
         super.init(frame: frame, collectionViewLayout: flowLayout)
         
+        self.register(PhotosCollectionViewCell.self, forCellWithReuseIdentifier: PhotosCollectionViewCell.id)
+        
         setUpCollectionView()
     }
     
@@ -24,6 +26,7 @@ final class PhotosCollectionView: UICollectionView {
     
     private func setUpCollectionView() {
         self.backgroundColor = .systemYellow
+        
     }
 }
 

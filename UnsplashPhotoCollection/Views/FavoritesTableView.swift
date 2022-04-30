@@ -1,5 +1,5 @@
 //
-//  PreferedPhotoTableView.swift
+//  FavoritesTableView.swift
 //  UnsplashPhotoCollection
 //
 //  Created by Ален Авако on 30.04.2022.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class PreferedPhotoTableView: UITableView {
+class FavoritesTableView: UITableView {
     
     override init(frame: CGRect, style: UITableView.Style) {
         let plainStyle = UITableView.Style.plain

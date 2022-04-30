@@ -15,7 +15,7 @@ class TabBarController: UITabBarController {
         setupTabBarController()
         
         viewControllers = [createViewController(rootViewController: PhotosCollectionViewController(), title: "Photos", image: "photos"),
-        createViewController(rootViewController: PreferedPhotosViewController(), title: "Favorite", image: "like")]
+        createViewController(rootViewController: FavoritesTableViewController(), title: "Favorite", image: "like")]
     }
     
     private func setupTabBarController() {
