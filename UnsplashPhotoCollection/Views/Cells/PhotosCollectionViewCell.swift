@@ -36,10 +36,6 @@ class PhotosCollectionViewCell: UICollectionViewCell {
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        contentView.addSubview(photo)
-        contentView.roundCornersWithRadius(12)
-        contentView.backgroundColor = .black
-        
         setupView()
     }
     
@@ -48,7 +44,9 @@ class PhotosCollectionViewCell: UICollectionViewCell {
     }
     
     private func setupView() {
-        
+        contentView.addSubview(photo)
+        contentView.roundCornersWithRadius(12)
+        contentView.backgroundColor = .black
         
         NSLayoutConstraint.activate([
             photo.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),

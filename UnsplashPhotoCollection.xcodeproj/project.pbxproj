@@ -28,6 +28,9 @@
 		837FE945281D9B1D00027F1E /* PhotoDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 837FE944281D9B1D00027F1E /* PhotoDetailView.swift */; };
 		837FE947281DA7AE00027F1E /* PhotoDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 837FE946281DA7AE00027F1E /* PhotoDetailViewController.swift */; };
 		837FE949281DA84C00027F1E /* PhotoInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 837FE948281DA84C00027F1E /* PhotoInfo.swift */; };
+		837FE94C281F16B800027F1E /* NetworkDetailService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 837FE94B281F16B700027F1E /* NetworkDetailService.swift */; };
+		837FE94E281F16CB00027F1E /* NetworkDetailDataFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 837FE94D281F16CB00027F1E /* NetworkDetailDataFetcher.swift */; };
+		837FE951281F21A200027F1E /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 837FE950281F21A200027F1E /* CustomButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -55,6 +58,9 @@
 		837FE944281D9B1D00027F1E /* PhotoDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoDetailView.swift; sourceTree = "<group>"; };
 		837FE946281DA7AE00027F1E /* PhotoDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoDetailViewController.swift; sourceTree = "<group>"; };
 		837FE948281DA84C00027F1E /* PhotoInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoInfo.swift; sourceTree = "<group>"; };
+		837FE94B281F16B700027F1E /* NetworkDetailService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkDetailService.swift; sourceTree = "<group>"; };
+		837FE94D281F16CB00027F1E /* NetworkDetailDataFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkDetailDataFetcher.swift; sourceTree = "<group>"; };
+		837FE950281F21A200027F1E /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		8E63D989D4C1FBDB2E6E6721 /* Pods_UnsplashPhotoCollection.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UnsplashPhotoCollection.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -164,6 +170,7 @@
 		837FE939281D583000027F1E /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				837FE94A281F168C00027F1E /* NetworkPhotoDetailService */,
 				837FE93A281D583700027F1E /* NetworkSearchService */,
 			);
 			path = Services;
@@ -181,11 +188,29 @@
 		837FE93F281D628D00027F1E /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				837FE94F281F219400027F1E /* Custom */,
 				837FE940281D629C00027F1E /* SearchResult.swift */,
 				837FE942281D9AA100027F1E /* PhotoDetail.swift */,
 				837FE948281DA84C00027F1E /* PhotoInfo.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		837FE94A281F168C00027F1E /* NetworkPhotoDetailService */ = {
+			isa = PBXGroup;
+			children = (
+				837FE94B281F16B700027F1E /* NetworkDetailService.swift */,
+				837FE94D281F16CB00027F1E /* NetworkDetailDataFetcher.swift */,
+			);
+			path = NetworkPhotoDetailService;
+			sourceTree = "<group>";
+		};
+		837FE94F281F219400027F1E /* Custom */ = {
+			isa = PBXGroup;
+			children = (
+				837FE950281F21A200027F1E /* CustomButton.swift */,
+			);
+			path = Custom;
 			sourceTree = "<group>";
 		};
 		F26E1907B9FCD333CD758708 /* Pods */ = {
@@ -315,18 +340,21 @@
 				837FE92D281CA26000027F1E /* UIViewExtension.swift in Sources */,
 				837FE919281C3ED500027F1E /* UnsplashPhotoCollection.xcdatamodeld in Sources */,
 				837FE935281CA4E400027F1E /* PreferedTableViewCell.swift in Sources */,
+				837FE94C281F16B800027F1E /* NetworkDetailService.swift in Sources */,
 				837FE913281C3ED500027F1E /* PhotosCollectionViewController.swift in Sources */,
 				837FE93E281D5BF300027F1E /* NetworkDataFetcher.swift in Sources */,
 				837FE933281CA3D900027F1E /* FavoritesTableView.swift in Sources */,
 				837FE943281D9AA100027F1E /* PhotoDetail.swift in Sources */,
 				837FE938281CA54A00027F1E /* PhotosCollectionViewCell.swift in Sources */,
 				837FE945281D9B1D00027F1E /* PhotoDetailView.swift in Sources */,
+				837FE951281F21A200027F1E /* CustomButton.swift in Sources */,
 				837FE947281DA7AE00027F1E /* PhotoDetailViewController.swift in Sources */,
 				837FE929281C4A4200027F1E /* PhotosCollectionView.swift in Sources */,
 				837FE941281D629C00027F1E /* SearchResult.swift in Sources */,
 				837FE92F281CA2BA00027F1E /* TabBarController.swift in Sources */,
 				837FE90F281C3ED500027F1E /* AppDelegate.swift in Sources */,
 				837FE931281CA32300027F1E /* FavoritesTableViewController.swift in Sources */,
+				837FE94E281F16CB00027F1E /* NetworkDetailDataFetcher.swift in Sources */,
 				837FE93C281D585500027F1E /* NetworkService.swift in Sources */,
 				837FE911281C3ED500027F1E /* SceneDelegate.swift in Sources */,
 			);

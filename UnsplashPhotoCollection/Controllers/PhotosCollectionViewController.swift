@@ -102,8 +102,10 @@ extension PhotosCollectionViewController: UICollectionViewDelegateFlowLayout {
         
         let photo = photos[indexPath.item]
         
-        let photoDetailVC = PhotoDetailViewController(photoInfo: PhotoInfo(id: photo.id, createdAt: photo.created_at, likedByUser: false, name: "", downloads: ""))
-        photoDetailVC.modalPresentationStyle = .fullScreen
+        guard let image = UIImage(systemName: "xmark") else { return }
+        
+        let photoDetailVC = PhotoDetailViewController(photoId: photo.id)
+//        photoDetailVC.modalPresentationStyle = .fullScreen
         navigationController?.present(photoDetailVC, animated: true, completion: nil)
     }
 }

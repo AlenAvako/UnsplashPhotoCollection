@@ -9,17 +9,42 @@ import UIKit
 
 class FavoritesTableViewController: UIViewController {
     
-    let tableView = FavoritesTableView()
+    let favoritesTableView = FavoritesTableView()
     
     override func loadView() {
         super.loadView()
         
-        view = tableView
+        view = favoritesTableView
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        setUpTableView()
     }
+    
+    private func setUpTableView() {
+        
+        favoritesTableView.dataSource = self
+        favoritesTableView.delegate = self
+    }
+}
 
+extension FavoritesTableViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = favoritesTableView.dequeueReusableCell(withIdentifier: PreferedTableViewCell.id, for: indexPath) as! PreferedTableViewCell
+        
+        cell.name.text = "AAA"
+        cell.photo.image = UIImage(named: "icon")
+        
+        return cell
+    }
+}
+
+extension FavoritesTableViewController: UITableViewDelegate {
+    
 }

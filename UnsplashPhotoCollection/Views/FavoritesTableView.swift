@@ -10,9 +10,11 @@ import UIKit
 class FavoritesTableView: UITableView {
     
     override init(frame: CGRect, style: UITableView.Style) {
-        let plainStyle = UITableView.Style.plain
+        let plainStyle = UITableView.Style.insetGrouped
         
         super.init(frame: frame, style: plainStyle)
+        
+        self.register(PreferedTableViewCell.self, forCellReuseIdentifier: PreferedTableViewCell.id)
         
         setUpTableView()
     }

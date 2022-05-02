@@ -5,9 +5,10 @@
 //  Created by Ален Авако on 30.04.2022.
 //
 
-import Foundation
+import UIKit
 
 struct PhotoInfo {
+    let photo: UIImage
     let id: String
     var createdAt: String
     var likedByUser: Bool

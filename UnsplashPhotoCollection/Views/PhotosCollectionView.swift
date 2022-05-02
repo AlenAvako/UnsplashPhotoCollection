@@ -25,7 +25,7 @@ final class PhotosCollectionView: UICollectionView {
     }
     
     private func setUpCollectionView() {
-        self.backgroundColor = .systemYellow
+        self.backgroundColor = .systemGray6
         
     }
 }
