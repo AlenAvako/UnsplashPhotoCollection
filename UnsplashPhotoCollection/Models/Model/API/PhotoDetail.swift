@@ -8,6 +8,7 @@
 import Foundation
 
 struct PhotoDetail: Decodable {
+    let id: String
     let created_at: String
     let downloads: Int
     let width: Int
@@ -37,6 +38,7 @@ struct Position: Decodable {
 }
 
 struct PhotoDetailWithoutLocation: Decodable {
+    let id: String
     let created_at: String
     let downloads: Int
     let width: Int

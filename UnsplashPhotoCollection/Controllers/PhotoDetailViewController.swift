@@ -7,24 +7,19 @@
 
 import UIKit
 
+protocol PhotoDetailViewControllerDelegate: AnyObject {
+    func checkForLike(id: String) -> Bool
+}
+
 class PhotoDetailViewController: UIViewController {
+    
+    weak var delegate: PhotoDetailViewControllerDelegate?
     
     private let photoDetailView = PhotoDetailView()
     
-    private var photoId: String
-    
     private let networkDF = NetworkDetailDataFetcher()
     
-    init(photoId: String) {
-        self.photoId = photoId
-        super.init(nibName: nil, bundle: nil)
-        
-        getData(id: photoId)
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
+    private let inspector = FavoritePhotoInspector()
     
     override func loadView() {
         super.loadView()
@@ -35,10 +30,18 @@ class PhotoDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        setUpButtons()
+        
     }
     
-    private func getData(id: String) {
+    func getData(id: String) {
+        self.delegate = inspector
+        
+        if self.delegate?.checkForLike(id: id) == true {
+            let largeConfig = UIImage.SymbolConfiguration(pointSize: 35, weight: .regular, scale: .default)
+            let largeBoldDoc = UIImage(systemName: "star.fill", withConfiguration: largeConfig)
+            self.photoDetailView.addToFavoriteButton.setImage(largeBoldDoc, for: .normal)
+        }
+        
         networkDF.getLocation(photoId: id) { [weak self] result in
             if result != nil {
                 guard let data = result else { return }
@@ -58,11 +61,45 @@ class PhotoDetailViewController: UIViewController {
                 }
             }
         }
+        
+        setUpButtons(id: id)
     }
     
-    private func setUpButtons() {
+    private func setUpButtons(id: String) {
+        
+        let favoriteArray = FavoritePhotoArray()
+        
         photoDetailView.dissmissButton.tapButton = {
             self.dismiss(animated: true, completion: nil)
+        }
+        
+        photoDetailView.addToFavoriteButton.tapButton = { [weak self] in
+            let newPhoto = FavoritePhoto(id: id)
+            
+            switch self?.delegate?.checkForLike(id: id) {
+            case true:
+                UIView.animate(withDuration: 0.1, delay: 0, options: .curveEaseInOut, animations: {
+                    self?.photoDetailView.addToFavoriteButton.transform = CGAffineTransform(scaleX: 0.90, y: 0.90)
+                }, completion: {_ in
+                    self?.photoDetailView.addToFavoriteButton.transform = CGAffineTransform(scaleX: 1, y: 1)
+                })
+                favoriteArray.deletePhoto(newPhoto)
+                let largeConfig = UIImage.SymbolConfiguration(pointSize: 35, weight: .regular, scale: .default)
+                let largeBoldDoc = UIImage(systemName: "star", withConfiguration: largeConfig)
+                self?.photoDetailView.addToFavoriteButton.setImage(largeBoldDoc, for: .normal)
+            case false:
+                UIView.animate(withDuration: 0.1, delay: 0, options: .curveEaseInOut) {
+                    self?.photoDetailView.addToFavoriteButton.transform = CGAffineTransform(scaleX: 0.90, y: 0.90)
+                } completion: { _ in
+                    self?.photoDetailView.addToFavoriteButton.transform = CGAffineTransform(scaleX: 1, y: 1)
+                }
+                favoriteArray.addnewPhoto(newPhoto)
+                let largeConfig = UIImage.SymbolConfiguration(pointSize: 35, weight: .regular, scale: .default)
+                let largeBoldDoc = UIImage(systemName: "star.fill", withConfiguration: largeConfig)
+                self?.photoDetailView.addToFavoriteButton.setImage(largeBoldDoc, for: .normal)
+            default:
+                break
+            }
         }
     }
 }

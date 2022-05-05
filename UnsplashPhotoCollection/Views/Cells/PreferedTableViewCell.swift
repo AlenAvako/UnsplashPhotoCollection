@@ -14,6 +14,7 @@ class PreferedTableViewCell: UITableViewCell {
     lazy var photo: UIImageView = {
         let photo = UIImageView()
         photo.toAutoLayout()
+        photo.contentMode = .scaleAspectFill
         photo.clipsToBounds = true
         photo.layer.cornerRadius = 15
         return photo

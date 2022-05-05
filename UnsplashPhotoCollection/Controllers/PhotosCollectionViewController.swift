@@ -11,7 +11,7 @@ class PhotosCollectionViewController: UIViewController {
     
     private var photos = [Photo]()
     
-    private let networkDF = NetworkDataFetcher()
+    private let networkDF = CollectionDataFetcher()
     
     private let photosCollectionView = PhotosCollectionView()
     
@@ -33,7 +33,6 @@ class PhotosCollectionViewController: UIViewController {
         let titleLabel = UILabel()
         titleLabel.text = "PHOTOS"
         titleLabel.font = UIFont.systemFont(ofSize: 23, weight: .bold)
-        titleLabel.textColor = UIColor(named: "AppGreen")
         navigationItem.leftBarButtonItem = UIBarButtonItem.init(customView: titleLabel)
     }
     
@@ -45,11 +44,7 @@ class PhotosCollectionViewController: UIViewController {
     }
     
     private func setUpCollectionView() {
-        networkDF.fetchImages(searchTerm: "Hello", completion: { [weak self] result in
-            guard let fetchedPhotos = result else { return }
-            self?.photos = fetchedPhotos.results
-            self?.photosCollectionView.reloadData()
-        })
+        networkDF.fetchPhotos(photosCollectionView, searchTerm: "Hello")
         
         photosCollectionView.delegate = self
         photosCollectionView.dataSource = self
@@ -59,12 +54,7 @@ class PhotosCollectionViewController: UIViewController {
 extension PhotosCollectionViewController: UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         guard let searchText = searchBar.text else { return }
-        networkDF.fetchImages(searchTerm: searchText) { [weak self] searchResult in
-            
-            guard let fetchedPhotos = searchResult else { return }
-            self?.photos = fetchedPhotos.results
-            self?.photosCollectionView.reloadData()
-        }
+        networkDF.fetchPhotos(photosCollectionView, searchTerm: searchText)
     }
 }
 
@@ -74,12 +64,12 @@ extension PhotosCollectionViewController: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return photos.count
+        return SearchPhotoArray.photoArray.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = photosCollectionView.dequeueReusableCell(withReuseIdentifier: PhotosCollectionViewCell.id, for: indexPath) as! PhotosCollectionViewCell
-        cell.unsplashPhoto = photos[indexPath.row]
+        cell.unsplashPhoto = SearchPhotoArray.photoArray[indexPath.row]
         
         return cell
     }
@@ -100,12 +90,10 @@ extension PhotosCollectionViewController: UICollectionViewDataSource {
 extension PhotosCollectionViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
-        let photo = photos[indexPath.item]
+        let photo = SearchPhotoArray.photoArray[indexPath.item]
         
-        guard let image = UIImage(systemName: "xmark") else { return }
-        
-        let photoDetailVC = PhotoDetailViewController(photoId: photo.id)
-//        photoDetailVC.modalPresentationStyle = .fullScreen
+        let photoDetailVC = PhotoDetailViewController()
+        photoDetailVC.getData(id: photo.id)
         navigationController?.present(photoDetailVC, animated: true, completion: nil)
     }
 }

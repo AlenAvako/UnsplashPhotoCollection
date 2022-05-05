@@ -15,6 +15,7 @@ struct SearchResult: Decodable {
 struct Photo: Decodable {
     let id: String
     let created_at: String
+    var liked_by_user: Bool
     let urls: [URLKind.RawValue: String]
     
     enum URLKind: String {

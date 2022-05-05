@@ -56,8 +56,8 @@ class PhotoDetailView: UIScrollView {
         return button
     }()
     
-    lazy var addToFavoriteButton: UIButton = {
-        let button = UIButton()
+    lazy var addToFavoriteButton: CustomButton = {
+        let button = CustomButton()
         button.toAutoLayout()
         let largeConfig = UIImage.SymbolConfiguration(pointSize: 35, weight: .regular, scale: .default)
         let largeBoldDoc = UIImage(systemName: "star", withConfiguration: largeConfig)
@@ -120,6 +120,16 @@ class PhotoDetailView: UIScrollView {
         photo.sd_setImage(with: url, completed: nil)
         
         setUpConstraints(width: CGFloat(width), height: CGFloat(height))
+    }
+    
+    func setUpFavoriteView(photo: UIImage, name: String, date: String, downloads: String, width: CGFloat, height: CGFloat) {
+
+        nameLabel.text = "\(name)"
+        dateLabel.text = "\(date)"
+        downloadsLabel.text = "\(downloads)"
+        self.photo.image = photo
+        
+        setUpConstraints(width: width, height: height)
     }
     
     private func setUpConstraints(width: CGFloat, height: CGFloat) {

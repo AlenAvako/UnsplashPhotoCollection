@@ -24,6 +24,6 @@ class FavoritesTableView: UITableView {
     }
     
     private func setUpTableView() {
-        self.backgroundColor = .systemYellow
+        self.backgroundColor = .systemGray6
     }
 }
