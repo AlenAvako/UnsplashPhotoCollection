@@ -7,11 +7,11 @@
 
 import UIKit
 
-class FavoritesTableViewController: UIViewController {
+final class FavoritesTableViewController: UIViewController {
     
-//    let photoStorage = PhotoStore.shared
+    private let photoStorage = PhotoStore.shared
     
-    let favoritesTableView = FavoritesTableView()
+    private let favoritesTableView = FavoritesTableView()
     
     override func loadView() {
         super.loadView()
@@ -22,15 +22,15 @@ class FavoritesTableViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        
         setUpTableView()
         reloadTableView()
         setupNavigationBar()
     }
     
     private func reloadTableView() {
-//        photoStorage.fetchPhotos()
+        photoStorage.fetchPhotos()
         favoritesTableView.reloadData()
+        NotificationCenter.default.addObserver(self, selector: #selector(loadList), name: NSNotification.Name(rawValue: "load"), object: nil)
     }
     
     private func setupNavigationBar() {
@@ -45,18 +45,25 @@ class FavoritesTableViewController: UIViewController {
         favoritesTableView.dataSource = self
         favoritesTableView.delegate = self
     }
+    
+    @objc func loadList(notification: NSNotification){
+        self.favoritesTableView.reloadData()
+    }
 }
 
 extension FavoritesTableViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 0
+        guard let count = photoStorage.photos?.count else { return 0 }
+        
+        return count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = favoritesTableView.dequeueReusableCell(withIdentifier: PreferedTableViewCell.id, for: indexPath) as! PreferedTableViewCell
         
-//        cell.name.text = photoStorage.photos?[indexPath.row].name
-//        cell.photo.image = photoStorage.photos?[indexPath.row].photo
+        cell.name.text = photoStorage.photos?[indexPath.row].name
+        
+        cell.photo.image = UIImage(data: (photoStorage.photos?[indexPath.row].photo!)!)
         
         return cell
     }
@@ -64,7 +71,7 @@ extension FavoritesTableViewController: UITableViewDataSource {
 
 extension FavoritesTableViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        guard let photo = photoStorage.photos?[indexPath.row] else { return }
+        guard let photo = photoStorage.photos?[indexPath.row] else { return }
         
         let detail = PhotoDetailViewController()
 //        detail.openFavoritePhoto(photo: photo)
@@ -73,7 +80,7 @@ extension FavoritesTableViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let action = UIContextualAction(style: .destructive, title: "Delete") { _, _, complete in
-//            self.photoStorage.deletePhoto(indexPath: indexPath, tableView: self.favoritesTableView)
+            self.photoStorage.deletePhotoFromTableView(indexPath: indexPath)
             self.favoritesTableView.reloadData()
             complete(true)
         }

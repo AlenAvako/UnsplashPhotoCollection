@@ -16,9 +16,12 @@ class Checker {
     var newValue: String = ""
     
     func checkLike(id: String) {
-        for (_, value) in FavoritePhotoArray.photoArray.enumerated() {
+        
+        guard let array = PhotoStore.shared.photos else { return }
+        for (_, value) in array.enumerated() {
             if id == value.id {
-                newValue = value.id
+                guard let getValue = value.id else { return }
+                newValue = getValue
             }
         }
         

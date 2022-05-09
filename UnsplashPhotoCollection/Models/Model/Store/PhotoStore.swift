@@ -7,51 +7,63 @@
 
 import UIKit
 import CoreData
-//
-//final class PhotoStore {
-//    
-//    public static let shared: PhotoStore = .init()
-//    
-//    var photos: [PhotoInfo]?
-//    
-//    private let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-//    
-//    func fetchPhotos() {
-//        do {
-//            self.photos = try context.fetch(PhotoInfo.fetchRequest())
-//            
-////            DispatchQueue.main.async {
-////                tableView?.reloadData()
-////            }
-//        }
-//        catch {
-//            print("Ошибка декодирования сохраненных изображений", error)
-//        }
-//    }
-//    
-//    func createPhoto(photo: UIImage, name: String, date: String, downloads: String) -> PhotoInfo {
-//        let newPhoto = PhotoInfo(context: self.context)
-//        newPhoto.photo = photo
-//        newPhoto.name = name
-//        newPhoto.date = date
-//        newPhoto.dowloads = downloads
-//        
-//        return newPhoto
-//    }
-//    
-//    func saveData() {
-//        do {
-//            try self.context.save()
-//        } catch {
-//            print("Ошибка при сохранении изображения", error)
-//        }
-//    }
-//
-//    func deletePhoto(indexPath: IndexPath, tableView: UITableView) {
-//        let photoToRemove = photos![indexPath.row]
-//        context.delete(photoToRemove)
-//
-//        saveData()
-//        fetchPhotos()
-//    }
-//}
+
+final class PhotoStore {
+
+    public static let shared: PhotoStore = .init()
+
+    var photos: [LikedPhoto]?
+
+    private let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+
+    func fetchPhotos() {
+        do {
+            self.photos = try context.fetch(LikedPhoto.fetchRequest())
+        }
+        catch {
+            print("Ошибка декодирования сохраненных изображений", error.localizedDescription)
+        }
+    }
+
+    func createPhoto(id: String, photo: Data, name: String, date: String, downloads: String, latitude: Double, longitude: Double) {
+        let newPhoto = LikedPhoto(context: self.context)
+        newPhoto.id = id
+        newPhoto.photo = photo
+        newPhoto.name = name
+        newPhoto.date = date
+        newPhoto.downloads = downloads
+        newPhoto.latitude = latitude
+        newPhoto.longitude = longitude
+
+        saveData()
+    }
+    
+    func deletePhoto(id: String) {
+        guard let array = PhotoStore.shared.photos else { return }
+        
+        for (_, value) in array.enumerated() {
+            if id == value.id {
+                context.delete(value)
+            }
+        }
+        saveData()
+        fetchPhotos()
+    }
+    
+    func deletePhotoFromTableView(indexPath: IndexPath) {
+        let photoToRemove = photos![indexPath.row]
+        context.delete(photoToRemove)
+        
+        saveData()
+        fetchPhotos()
+    }
+
+    private func saveData() {
+        do {
+            try self.context.save()
+        } catch {
+            print("Ошибка при сохранении", error.localizedDescription)
+        }
+    }
+
+}

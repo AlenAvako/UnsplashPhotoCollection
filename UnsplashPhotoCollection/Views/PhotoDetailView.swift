@@ -9,6 +9,8 @@ import UIKit
 
 class PhotoDetailView: UIScrollView {
     
+    lazy var id = String()
+    
     lazy var contentView: UIView = {
         let view = UIView()
         view.toAutoLayout()
@@ -107,7 +109,7 @@ class PhotoDetailView: UIScrollView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func setUpView(url: URL, name: String, date: String, downloads: Int, width: Int, height: Int) {
+    func setUpView(id: String, url: URL, name: String, date: String, downloads: Int, width: Int, height: Int) {
 
         nameLabel.text = "\(name)"
         

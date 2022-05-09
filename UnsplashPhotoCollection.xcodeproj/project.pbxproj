@@ -10,6 +10,7 @@
 		77DD228DE09A08130FABBC6E /* Pods_UnsplashPhotoCollection.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8E63D989D4C1FBDB2E6E6721 /* Pods_UnsplashPhotoCollection.framework */; };
 		832B3A922822F22A00BBEC06 /* SearchPhotoArray.swift in Sources */ = {isa = PBXBuildFile; fileRef = 832B3A912822F22A00BBEC06 /* SearchPhotoArray.swift */; };
 		832B3A942822F3E600BBEC06 /* CollectionDataFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 832B3A932822F3E600BBEC06 /* CollectionDataFetcher.swift */; };
+		8335400B2825443E00034C01 /* LikedPhoto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8335400A2825443E00034C01 /* LikedPhoto.swift */; };
 		837FE90F281C3ED500027F1E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 837FE90E281C3ED500027F1E /* AppDelegate.swift */; };
 		837FE911281C3ED500027F1E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 837FE910281C3ED500027F1E /* SceneDelegate.swift */; };
 		837FE913281C3ED500027F1E /* PhotosCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 837FE912281C3ED500027F1E /* PhotosCollectionViewController.swift */; };
@@ -44,6 +45,7 @@
 		4399B2E8E1EAEB66FD5A5C15 /* Pods-UnsplashPhotoCollection.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UnsplashPhotoCollection.release.xcconfig"; path = "Target Support Files/Pods-UnsplashPhotoCollection/Pods-UnsplashPhotoCollection.release.xcconfig"; sourceTree = "<group>"; };
 		832B3A912822F22A00BBEC06 /* SearchPhotoArray.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPhotoArray.swift; sourceTree = "<group>"; };
 		832B3A932822F3E600BBEC06 /* CollectionDataFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionDataFetcher.swift; sourceTree = "<group>"; };
+		8335400A2825443E00034C01 /* LikedPhoto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikedPhoto.swift; sourceTree = "<group>"; };
 		837FE90B281C3ED500027F1E /* UnsplashPhotoCollection.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UnsplashPhotoCollection.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		837FE90E281C3ED500027F1E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		837FE910281C3ED500027F1E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -216,6 +218,7 @@
 				837FE9562821856500027F1E /* Store */,
 				837FE94F281F219400027F1E /* Custom */,
 				832B3A952822F6C000BBEC06 /* API */,
+				8335400A2825443E00034C01 /* LikedPhoto.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -268,6 +271,7 @@
 				837FE908281C3ED500027F1E /* Frameworks */,
 				837FE909281C3ED500027F1E /* Resources */,
 				9825676208161F7F1E2C21B2 /* [CP] Embed Pods Frameworks */,
+				1CB9B81B4CA71FB82DB6039A /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -346,6 +350,23 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		1CB9B81B4CA71FB82DB6039A /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-UnsplashPhotoCollection/Pods-UnsplashPhotoCollection-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-UnsplashPhotoCollection/Pods-UnsplashPhotoCollection-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-UnsplashPhotoCollection/Pods-UnsplashPhotoCollection-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		9825676208161F7F1E2C21B2 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -384,6 +405,7 @@
 				837FE938281CA54A00027F1E /* PhotosCollectionViewCell.swift in Sources */,
 				837FE945281D9B1D00027F1E /* PhotoDetailView.swift in Sources */,
 				83B467EC2823EDCC009CE982 /* Checker.swift in Sources */,
+				8335400B2825443E00034C01 /* LikedPhoto.swift in Sources */,
 				837FE951281F21A200027F1E /* CustomButton.swift in Sources */,
 				83B467EA2823EDB4009CE982 /* FavoritePhotoInspector.swift in Sources */,
 				837FE947281DA7AE00027F1E /* PhotoDetailViewController.swift in Sources */,
