@@ -47,7 +47,9 @@ final class FavoritesTableViewController: UIViewController {
     }
     
     @objc func loadList(notification: NSNotification){
-        self.favoritesTableView.reloadData()
+        DispatchQueue.main.async {
+            self.favoritesTableView.reloadData()
+        }
     }
 }
 
@@ -62,8 +64,7 @@ extension FavoritesTableViewController: UITableViewDataSource {
         let cell = favoritesTableView.dequeueReusableCell(withIdentifier: PreferedTableViewCell.id, for: indexPath) as! PreferedTableViewCell
         
         cell.name.text = photoStorage.photos?[indexPath.row].name
-        
-        cell.photo.image = UIImage(data: (photoStorage.photos?[indexPath.row].photo!)!)
+        cell.photo.image = UIImage(data: (photoStorage.photos?[indexPath.row].photo)!)
         
         return cell
     }
@@ -71,18 +72,26 @@ extension FavoritesTableViewController: UITableViewDataSource {
 
 extension FavoritesTableViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        guard let photo = photoStorage.photos?[indexPath.row] else { return }
+        guard let photo = photoStorage.photos?[indexPath.row], let id = photo.id else { return }
         
-        let detail = PhotoDetailViewController()
-//        detail.openFavoritePhoto(photo: photo)
-        navigationController?.present(detail, animated: true, completion: nil)
+        
+        let detailVC = PhotoDetailViewController(photoId: id)
+        navigationController?.present(detailVC, animated: true, completion: nil)
     }
     
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let action = UIContextualAction(style: .destructive, title: "Delete") { _, _, complete in
-            self.photoStorage.deletePhotoFromTableView(indexPath: indexPath)
-            self.favoritesTableView.reloadData()
-            complete(true)
+            let alert = UIAlertController(title: "Warning", message: "Are you sure you want to delete?", preferredStyle: .alert)
+            let ok = UIAlertAction(title: "Ok", style: .destructive) { _ in
+                self.photoStorage.deletePhotoFromTableView(indexPath: indexPath)
+                self.favoritesTableView.reloadData()
+                complete(true)
+            }
+            let cancel = UIAlertAction(title: "Cancel", style: .cancel)
+            alert.addAction(ok)
+            alert.addAction(cancel)
+            
+            self.present(alert, animated: true)
         }
         return UISwipeActionsConfiguration(actions: [action])
     }

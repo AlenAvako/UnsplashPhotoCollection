@@ -24,7 +24,6 @@ class PreferedTableViewCell: UITableViewCell {
         let label = UILabel()
         label.toAutoLayout()
         label.font = UIFont.systemFont(ofSize: 20, weight: .regular)
-//        label.textColor = .black
         return label
     }()
     

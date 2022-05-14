@@ -9,11 +9,11 @@ import UIKit
 
 class PhotosCollectionViewController: UIViewController {
     
-    private var photos = [Photo]()
-    
     private let networkDF = CollectionDataFetcher()
     
     private let photosCollectionView = PhotosCollectionView()
+    
+    private let inspector = PhotoInspector()
     
     override func loadView() {
         super.loadView()
@@ -92,8 +92,7 @@ extension PhotosCollectionViewController: UICollectionViewDelegateFlowLayout {
         
         let photo = SearchPhotoArray.photoArray[indexPath.item]
         
-        let photoDetailVC = PhotoDetailViewController()
-        photoDetailVC.getData(id: photo.id)
+        let photoDetailVC = PhotoDetailViewController(photoId: photo.id)
         navigationController?.present(photoDetailVC, animated: true, completion: nil)
     }
 }

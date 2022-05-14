@@ -25,15 +25,11 @@ final class PhotoStore {
         }
     }
 
-    func createPhoto(id: String, photo: Data, name: String, date: String, downloads: String, latitude: Double, longitude: Double) {
+    func createPhoto(id: String, photo: Data, name: String) {
         let newPhoto = LikedPhoto(context: self.context)
         newPhoto.id = id
         newPhoto.photo = photo
         newPhoto.name = name
-        newPhoto.date = date
-        newPhoto.downloads = downloads
-        newPhoto.latitude = latitude
-        newPhoto.longitude = longitude
 
         saveData()
     }

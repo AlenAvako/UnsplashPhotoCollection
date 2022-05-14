@@ -1,15 +1,15 @@
 //
-//  FavoritePhotoInspector.swift
+//  PhotoInspector.swift
 //  UnsplashPhotoCollection
 //
 //  Created by Ален Авако on 05.05.2022.
 //
 
-import Foundation
+import UIKit
 
-class FavoritePhotoInspector: PhotoDetailViewControllerDelegate {
-    
-    let checker = Checker.shared
+class PhotoInspector: PhotoDetailViewControllerDelegate {
+
+    private let checker = Checker.shared
     
     func checkForLike(id: String) -> Bool {
         checker.checkLike(id: id)
@@ -19,3 +19,4 @@ class FavoritePhotoInspector: PhotoDetailViewControllerDelegate {
         return checker.isLikedByUser
     }
 }
+

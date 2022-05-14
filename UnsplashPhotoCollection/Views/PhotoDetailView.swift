@@ -6,10 +6,29 @@
 //
 
 import UIKit
+import GoogleMaps
 
 class PhotoDetailView: UIScrollView {
+
+    lazy var backgroundView: UIView = {
+        let view = UIView()
+        view.frame = self.frame
+        view.backgroundColor = .black
+        view.alpha = 0
+        return view
+    }()
     
-    lazy var id = String()
+    lazy var xMarkButton: UIButton = {
+        let button = UIButton()
+        button.frame = CGRect(origin: CGPoint(x: UIScreen.main.bounds.maxX - 40, y: 20), size: CGSize(width: 30, height: 30))
+        button.setImage(UIImage(systemName: "xmark"), for: .normal)
+        button.tintColor = .white
+        button.alpha = 0
+        let gesture = UITapGestureRecognizer(target: self, action: #selector(self.closeMap(_:)))
+        button.addGestureRecognizer(gesture)
+        button.isUserInteractionEnabled = true
+        return button
+    }()
     
     lazy var contentView: UIView = {
         let view = UIView()
@@ -55,6 +74,8 @@ class PhotoDetailView: UIScrollView {
         button.backgroundColor = .systemGray6
         button.alpha = 0.8
         button.layer.cornerRadius = 20
+        let gesture = UITapGestureRecognizer(target: self, action: #selector(self.openMap(_:)))
+        button.addGestureRecognizer(gesture)
         return button
     }()
     
@@ -100,6 +121,13 @@ class PhotoDetailView: UIScrollView {
         return view
     }()
     
+    lazy var map: GMSMapView = {
+        let map = GMSMapView()
+        map.frame = CGRect(x: 24, y: 24, width: 0, height: 0)
+        map.layer.cornerRadius = 30
+        return map
+    }()
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         
@@ -109,7 +137,7 @@ class PhotoDetailView: UIScrollView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func setUpView(id: String, url: URL, name: String, date: String, downloads: Int, width: Int, height: Int) {
+    func setUpView(id: String, url: URL, name: String, date: String, downloads: Int, width: Int, height: Int, latitude: Double, longitude: Double, city: String, country: String) {
 
         nameLabel.text = "\(name)"
         
@@ -122,20 +150,18 @@ class PhotoDetailView: UIScrollView {
         photo.sd_setImage(with: url, completed: nil)
         
         setUpConstraints(width: CGFloat(width), height: CGFloat(height))
-    }
-    
-    func setUpFavoriteView(photo: UIImage, name: String, date: String, downloads: String, width: CGFloat, height: CGFloat) {
 
-        nameLabel.text = "\(name)"
-        dateLabel.text = "\(date)"
-        downloadsLabel.text = "\(downloads)"
-        self.photo.image = photo
-        
-        setUpConstraints(width: width, height: height)
+        map.camera = GMSCameraPosition.camera(withLatitude: latitude, longitude: longitude, zoom: 10.0)
+
+        let marker = GMSMarker()
+        marker.position = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
+        marker.title = city
+        marker.snippet = country
+        marker.map = map
     }
     
     private func setUpConstraints(width: CGFloat, height: CGFloat) {
-        addSubview(contentView)
+        addSubviews(contentView, backgroundView, xMarkButton, map)
         
         contentView.addSubviews(photo, layerView, labelStackView, dissmissButton, locationButton, addToFavoriteButton)
         
@@ -195,5 +221,29 @@ class PhotoDetailView: UIScrollView {
 
             return scaledHeight
         }
+    }
+    
+    @objc func closeMap(_ gesture: UITapGestureRecognizer) {
+        UIView.animate(withDuration: 0.3, delay: 0, options: .curveEaseInOut, animations: {
+            self.backgroundView.alpha = 0
+            self.map.frame = CGRect(x: 24, y: 24, width: 0, height: 0)
+            self.locationButton.alpha = 1
+            self.dissmissButton.alpha = 1
+            self.xMarkButton.alpha = 0
+        }, completion: nil)
+    }
+    
+    @objc func openMap(_ gesture: UITapGestureRecognizer) {
+        UIView.animate(withDuration: 0.5, delay: 0, options: .curveEaseInOut, animations: {
+            self.backgroundView.alpha = 0.7
+            self.map.frame = CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.width)
+            self.map.center = self.center
+            self.locationButton.alpha = 0
+            self.dissmissButton.alpha = 0
+            
+            UIView.animate(withDuration: 0.2, delay: 0.5, options: .curveEaseInOut, animations: {
+                self.xMarkButton.alpha = 1
+            }, completion: nil)
+        }, completion: nil)
     }
 }
